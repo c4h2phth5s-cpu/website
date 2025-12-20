@@ -1,14 +1,15 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ledger Craft Solutions | Bookkeeping, AP/AR, Payroll & Tax Support</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta name="description" content="Ledger Craft Solutions provides accurate, reliable, stress-free bookkeeping for small businesses: bookkeeping, financial reporting, AP/AR, payroll support, and HST/GST reporting." />
+
   <style>
     :root{
       --bg:#ffffff;
@@ -55,22 +56,15 @@
       color:var(--text);
       white-space:nowrap;
     }
+
+    /* ✅ SINGLE SOURCE OF TRUTH FOR LOGO SIZE */
     .logo-img{
-      height:90px;
-      width:auto;
-      display:block;
-      filter: drop-shadow(0 8px 16px rgba(11,18,32,.10));
-    }
-    @media (max-width: 960px){
-      .logo-img{height:90px;}
-      .brand-name{font-size:16px;}
-    }
-    .logo-img{
-      height:58px;
-      width:auto;
-      border-radius:10px;
+      height: 90px;          /* desktop logo height */
+      width: auto;
+      display: block;
+      border-radius: 10px;
       background: transparent;
-      display:block;
+      filter: drop-shadow(0 8px 16px rgba(11,18,32,.10));
     }
 
     .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
@@ -89,10 +83,11 @@
       transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       font-weight:700;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(11,18,32,.22); box-shadow: 0 10px 22px rgba(11,18,32,.08);}
-      font-weight:600;
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(11,18,32,.22);
+      box-shadow: 0 10px 22px rgba(11,18,32,.08);
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.24)}
     .btn.primary{
       background: linear-gradient(135deg, rgba(47,107,255,.95), rgba(47,107,255,.65));
       border-color: rgba(47,107,255,.55);
@@ -197,9 +192,10 @@
     .foot{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; align-items:flex-start}
     .foot small{color:var(--muted)}
 
-    /* Responsive */
+    /* Responsive (✅ only ONE 960px block now) */
     @media (max-width: 960px){
-      .logo-img{height:46px;}
+      .logo-img{ height: 60px; }   /* mobile logo height */
+      .brand-name{font-size:16px;}
 
       .hero-grid{grid-template-columns: 1fr;}
       .grid3{grid-template-columns: 1fr;}
@@ -208,7 +204,7 @@
       .hero h2{font-size:36px}
       .brand{min-width:auto}
     }
-  
+
     /* Theme toggle support */
     html[data-theme="dark"]{
       --bg:#0b1220;
@@ -236,8 +232,9 @@
     body{ background: var(--page) !important; }
     header{ background: var(--header) !important; }
 
-</style>
+  </style>
 </head>
+
 <body>
   <header>
     <div class="wrap nav">
@@ -320,7 +317,6 @@
         </div>
 
         <div class="grid3">
-          <!-- Bookkeeping -->
           <div class="card tile service-card">
             <div class="service-head">
               <span class="icon">BK</span>
@@ -333,7 +329,6 @@
             </p>
           </div>
 
-          <!-- AP / AR -->
           <div class="card tile service-card">
             <div class="service-head">
               <span class="icon">AP</span>
@@ -346,7 +341,6 @@
             </p>
           </div>
 
-          <!-- Tax -->
           <div class="card tile service-card">
             <div class="service-head">
               <span class="icon">TX</span>
@@ -598,7 +592,6 @@
         <div class="split">
           <div class="card boxpad">
             <h4 style="margin:0 0 10px">Get in touch</h4>
-            <p style="margin:0 0 10px; color:var(--muted)"></p>
             <ul class="list">
               <li><span class="check">✉</span><span>Email: <strong>Harshlad@ledgercraftsolution.ca</strong></span></li>
               <li><span class="check">☎</span><span>Phone: <strong>+1 647-856-3703</strong></span></li>
@@ -606,13 +599,14 @@
               <li><span class="check">🌐</span><span>Website: <strong>ledgercraftsolutions.ca</strong></span></li>
             </ul>
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
-              <a class="btn primary" href="mailto:query@ledgercraft.ca?subject=Bookkeeping%20Inquiry%20-%20Ledger%20Craft%20Solutions">Email Us</a>
+              <a class="btn primary" href="mailto:Harshlad@ledgercraftsolution.ca?subject=Bookkeeping%20Inquiry%20-%20Ledger%20Craft%20Solutions">Email Us</a>
               <a class="btn" href="#rates">View Packages</a>
             </div>
           </div>
 
           <form class="card boxpad" onsubmit="event.preventDefault(); alert('Form submitted (demo). Replace with a real form tool like Google Forms, Tally, Jotform, or your website backend.');">
-            <h4 style="margin:0 0 10px">Quick quote form </h4>
+            <h4 style="margin:0 0 10px">Quick quote form</h4>
+
             <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Name</label>
             <input required type="text" placeholder="Your name" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
 
