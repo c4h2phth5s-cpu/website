@@ -625,14 +625,22 @@
 
           <!-- ✅ HTML form that matches your site (no iframe) -->
           <form class="card boxpad"
-                action="https://formsubmit.co/Harshlad@ledgercraftsolutions.ca"
-                method="POST">
+      action="https://formsubmit.co/Harshlad@ledgercraftsolutions.ca"
+      method="POST">
 
-            <h4 style="margin:0 0 10px">Quick quote form</h4>
+  <h4 style="margin:0 0 10px">Quick quote form</h4>
 
-            <input type="hidden" name="_subject" value="New Quote Request – Ledger Craft Solutions">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
+  <!-- Email settings -->
+  <input type="hidden" name="_subject" value="New Quote Request – Ledger Craft Solutions">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Redirect after submit (no FormSubmit branding) -->
+  <input type="hidden" name="_next" value="https://ledgercraftsolutions.ca/thank-you.html">
+
+  <!-- Auto-reply to client -->
+  <input type="hidden" name="_autoresponse"
+         value="Thanks for reaching out to Ledger Craft Solutions. We received your request and will reply within 1 business day.">
 
             <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Name</label>
             <input required name="name" type="text" placeholder="Your name"
