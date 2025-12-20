@@ -4,10 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ledger Craft Solutions | Bookkeeping, AP/AR, Payroll & Tax Support</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <meta name="description" content="Ledger Craft Solutions provides accurate, reliable, stress-free bookkeeping for small businesses: bookkeeping, financial reporting, AP/AR, payroll support, and HST/GST reporting." />
+
   <style>
     :root{
       --bg:#ffffff;
@@ -21,14 +24,16 @@
       --radius:18px;
       --max:1100px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color:var(--text);
-      background: #f6f8fc;
       line-height:1.55;
     }
+
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
 
@@ -54,22 +59,15 @@
       color:var(--text);
       white-space:nowrap;
     }
+
+    /* ✅ LOGO (single source of truth) */
     .logo-img{
-      height:60px;
+      height: 90px;      /* desktop */
       width:auto;
       display:block;
-      filter: drop-shadow(0 8px 16px rgba(11,18,32,.10));
-    }
-    @media (max-width: 960px){
-      .logo-img{height:90px;}
-      .brand-name{font-size:16px;}
-    }
-    .logo-img{
-      height:90px;
-      width:auto;
-      border-radius:15px;
+      border-radius: 15px;
       background: transparent;
-      display:block;
+      filter: drop-shadow(0 8px 16px rgba(11,18,32,.10));
     }
 
     .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
@@ -88,16 +86,19 @@
       transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       font-weight:700;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(11,18,32,.22); box-shadow: 0 10px 22px rgba(11,18,32,.08);}
-      font-weight:600;
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(11,18,32,.22);
+      box-shadow: 0 10px 22px rgba(11,18,32,.08);
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.24)}
     .btn.primary{
       background: linear-gradient(135deg, rgba(47,107,255,.95), rgba(47,107,255,.65));
       border-color: rgba(47,107,255,.55);
       box-shadow: 0 18px 40px rgba(47,107,255,.25);
     }
-    .btn.primary:hover{background: linear-gradient(135deg, rgba(47,107,255,1), rgba(47,107,255,.7));}
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(47,107,255,1), rgba(47,107,255,.7));
+    }
     .btn.ghost{background: transparent}
 
     /* Hero */
@@ -117,9 +118,16 @@
       font-size:13px;
       background: rgba(255,255,255,.04);
     }
-    .dot{width:9px; height:9px; border-radius:50%; background: var(--accent2); box-shadow: 0 0 0 6px rgba(242,193,78,.12)}
+    .dot{
+      width:9px; height:9px; border-radius:50%;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(242,193,78,.12)
+    }
     .hero h2{font-size:46px; line-height:1.08; margin:14px 0 10px; letter-spacing:-.8px}
-    .hero h2 .accent{background: linear-gradient(90deg, rgba(47,107,255,1), rgba(47,107,255,.55)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+    .hero h2 .accent{
+      background: linear-gradient(90deg, rgba(47,107,255,1), rgba(47,107,255,.55));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
     .hero p{margin:0 0 18px; color:var(--muted); font-size:16px}
     .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
 
@@ -132,6 +140,7 @@
     .hero-card{padding:18px}
     .hero-card h3{margin:0 0 6px; font-size:16px}
     .hero-card p{margin:0 0 14px; color:var(--muted); font-size:13px}
+
     .kpi{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
     .kpi .box{
       border:1px solid var(--border);
@@ -164,13 +173,21 @@
     /* Rates */
     .rates{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
     .plan{padding:18px; position:relative; overflow:hidden}
-    .plan .tag{display:inline-block; font-size:12px; color:var(--muted); border:1px solid var(--border); padding:6px 10px; border-radius:999px; background: rgba(255,255,255,.04)}
+    .plan .tag{
+      display:inline-block; font-size:12px; color:var(--muted);
+      border:1px solid var(--border); padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.04)
+    }
     .plan h4{margin:12px 0 6px; font-size:18px}
     .price{font-size:34px; font-weight:900; margin:8px 0 12px}
     .price span{font-size:14px; color:var(--muted); font-weight:600}
     .list{margin:0; padding:0; list-style:none; display:grid; gap:8px; color:var(--muted); font-size:13px}
     .list li{display:flex; gap:10px; align-items:flex-start}
-    .check{flex:0 0 18px; height:18px; border-radius:6px; background: rgba(47,107,255,.18); border:1px solid rgba(47,107,255,.35); display:grid; place-items:center; font-size:12px; margin-top:2px}
+    .check{
+      flex:0 0 18px; height:18px; border-radius:6px;
+      background: rgba(47,107,255,.18); border:1px solid rgba(47,107,255,.35);
+      display:grid; place-items:center; font-size:12px; margin-top:2px
+    }
     .plan.featured{border-color: rgba(242,193,78,.45);}
     .plan.featured::before{
       content:"";
@@ -196,9 +213,10 @@
     .foot{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; align-items:flex-start}
     .foot small{color:var(--muted)}
 
-    /* Responsive */
+    /* ✅ Responsive (single 960px block) */
     @media (max-width: 960px){
-      .logo-img{height:46px;}
+      .logo-img{height:60px;} /* mobile */
+      .brand-name{font-size:16px;}
 
       .hero-grid{grid-template-columns: 1fr;}
       .grid3{grid-template-columns: 1fr;}
@@ -207,7 +225,7 @@
       .hero h2{font-size:36px}
       .brand{min-width:auto}
     }
-  
+
     /* Theme toggle support */
     html[data-theme="dark"]{
       --bg:#0b1220;
@@ -231,12 +249,11 @@
       --input: rgba(0,0,0,.04);
     }
 
-    /* Ensure elements follow variables */
     body{ background: var(--page) !important; }
     header{ background: var(--header) !important; }
-
-</style>
+  </style>
 </head>
+
 <body>
   <header>
     <div class="wrap nav">
@@ -319,7 +336,6 @@
         </div>
 
         <div class="grid3">
-          <!-- Bookkeeping -->
           <div class="card tile service-card">
             <div class="service-head">
               <span class="icon">BK</span>
@@ -332,7 +348,6 @@
             </p>
           </div>
 
-          <!-- AP / AR -->
           <div class="card tile service-card">
             <div class="service-head">
               <span class="icon">AP</span>
@@ -345,7 +360,6 @@
             </p>
           </div>
 
-          <!-- Tax -->
           <div class="card tile service-card">
             <div class="service-head">
               <span class="icon">TX</span>
@@ -597,52 +611,52 @@
         <div class="split">
           <div class="card boxpad">
             <h4 style="margin:0 0 10px">Get in touch</h4>
-            <p style="margin:0 0 10px; color:var(--muted)"> </p>
             <ul class="list">
               <li><span class="check">✉</span><span>Email: <strong>Harshlad@ledgercraftsolutions.ca</strong></span></li>
-              <li><span class="check">☎</span><span>Phone: <strong>+1-647-856-3703</strong></span></li>
+              <li><span class="check">☎</span><span>Phone: <strong>+1 647-856-3703</strong></span></li>
               <li><span class="check">📍</span><span>Toronto, ON</span></li>
               <li><span class="check">🌐</span><span>Website: <strong>ledgercraftsolutions.ca</strong></span></li>
             </ul>
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
-              <a class="btn primary" href="mailto:query@ledgercraft.ca?subject=Bookkeeping%20Inquiry%20-%20Ledger%20Craft%20Solutions">Email Us</a>
+              <a class="btn primary" href="mailto:Harshlad@ledgercraftsolutions.ca?subject=Bookkeeping%20Inquiry%20-%20Ledger%20Craft%20Solutions">Email Us</a>
               <a class="btn" href="#rates">View Packages</a>
             </div>
           </div>
 
-          <div class="card boxpad">
-  <h4 style="margin:0 0 10px">Quick quote form</h4>
+          <!-- ✅ HTML form that matches your site (no iframe) -->
+          <form class="card boxpad"
+                action="https://formsubmit.co/Harshlad@ledgercraftsolutions.ca"
+                method="POST">
 
-  <iframe
-    src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAibKC3WaK7vfdDTuXLNlW1oVkS9GmbsS82RkFQvnPF-gClw/viewform?embedded=true" width="640" height="812" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>"
-    width="100%"
-    height="600"
-    frameborder="0"
-    marginheight="0"
-    marginwidth="0">
-    Loading…
-  </iframe>
-</div>
-            <h4 style="margin:0 0 10px">Quick quote form </h4>
+            <h4 style="margin:0 0 10px">Quick quote form</h4>
+
+            <input type="hidden" name="_subject" value="New Quote Request – Ledger Craft Solutions">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
             <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Name</label>
-            <input required type="text" placeholder="Your name" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+            <input required name="name" type="text" placeholder="Your name"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
 
             <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Business</label>
-            <input required type="text" placeholder="Business name" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+            <input required name="business" type="text" placeholder="Business name"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
 
             <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Email</label>
-            <input required type="email" placeholder="name@email.com" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+            <input required name="email" type="email" placeholder="name@email.com"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
 
             <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">What do you need help with?</label>
-            <textarea required rows="4" placeholder="Example: monthly bookkeeping, POS matching, AP/AR, payroll, HST/GST..." style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none; resize:vertical;"></textarea>
+            <textarea required name="message" rows="4"
+              placeholder="Example: monthly bookkeeping, AP/AR, payroll, HST/GST…"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none; resize:vertical;"></textarea>
 
-            <button class="btn primary" type="submit" style="margin-top:12px; width:100%">Send</button>
-            <p style="margin:10px 0 0; color:var(--muted); font-size:12px">Tip: Replace this demo form with a real form tool, then paste the embed code here.</p>
+            <button class="btn primary" type="submit" style="margin-top:12px; width:100%">Send Request</button>
+            <p style="margin:10px 0 0; color:var(--muted); font-size:12px">We’ll respond within 1 business day.</p>
           </form>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
