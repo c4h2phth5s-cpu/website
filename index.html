@@ -273,6 +273,20 @@
 
   /* Give hero a bit less top space */
   .hero{ padding:26px 0 18px; }
+  /* ✅ FORCE logo to show on mobile */
+@media (max-width: 960px){
+  .brand{
+    display:flex;
+    align-items:center;
+    min-width:auto;
+  }
+
+  .logo-img{
+    height:48px !important;
+    max-width:100%;
+    visibility:visible;
+  }
+}
   </style>
 </head>
 
