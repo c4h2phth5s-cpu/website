@@ -251,6 +251,28 @@
 
     body{ background: var(--page) !important; }
     header{ background: var(--header) !important; }
+    /* ✅ Mobile header fix */
+@media (max-width: 960px){
+  header{ position: sticky; top:0; }
+
+  .nav{
+    flex-wrap: nowrap;
+    gap:10px;
+    padding:10px 0;
+  }
+
+  .logo-img{ height:48px !important; }
+  .brand-name{ font-size:16px; }
+
+  /* Hide the desktop links on mobile */
+  .navlinks{ display:none !important; }
+
+  /* Keep the right buttons compact */
+  .btn{ padding:8px 10px; border-radius:12px; }
+  .btn.primary{ padding:8px 10px; }
+
+  /* Give hero a bit less top space */
+  .hero{ padding:26px 0 18px; }
   </style>
 </head>
 
