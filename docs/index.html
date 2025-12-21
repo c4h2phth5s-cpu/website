@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ledger Craft Solutions | Bookkeeping, AP/AR, Payroll & Tax Support</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Ledger Craft Solutions provides accurate, reliable, stress-free bookkeeping for small businesses: bookkeeping, financial reporting, AP/AR, payroll support, and HST/GST reporting." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#ffffff;
+      --text:#0b1220;
+      --muted:#5f6b85;
+      --accent:#2f6bff;
+      --accent2:#2f6bff;
+      --border:rgba(11,18,32,.12);
+      --shadow: 0 16px 40px rgba(11,18,32,.10);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Top bar */
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:14px;
+    }
+    .brand-name{
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:.4px;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    /* ✅ LOGO (single source of truth) */
+    .logo-img{
+      height: 90px;      /* desktop */
+      width:auto;
+      display:block;
+      border-radius: 15px;
+      background: transparent;
+      filter: drop-shadow(0 8px 16px rgba(11,18,32,.10));
+    }
+
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .navlinks a{font-size:13px; color:var(--muted)}
+    .navlinks a:hover{color:var(--text)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      gap:10px;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      font-weight:700;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(11,18,32,.22);
+      box-shadow: 0 10px 22px rgba(11,18,32,.08);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(47,107,255,.95), rgba(47,107,255,.65));
+      border-color: rgba(47,107,255,.55);
+      box-shadow: 0 18px 40px rgba(47,107,255,.25);
+    }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(47,107,255,1), rgba(47,107,255,.7));
+    }
+    .btn.ghost{background: transparent}
+
+    /* Hero */
+    .hero{padding:58px 0 28px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      background: rgba(255,255,255,.04);
+    }
+    .dot{
+      width:9px; height:9px; border-radius:50%;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(242,193,78,.12)
+    }
+    .hero h2{font-size:46px; line-height:1.08; margin:14px 0 10px; letter-spacing:-.8px}
+    .hero h2 .accent{
+      background: linear-gradient(90deg, rgba(47,107,255,1), rgba(47,107,255,.55));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .hero p{margin:0 0 18px; color:var(--muted); font-size:16px}
+    .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{padding:18px}
+    .hero-card h3{margin:0 0 6px; font-size:16px}
+    .hero-card p{margin:0 0 14px; color:var(--muted); font-size:13px}
+
+    .kpi{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .kpi .box{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px;
+      background: rgba(0,0,0,.12);
+    }
+    .kpi .num{font-size:20px; font-weight:800}
+    .kpi .lbl{font-size:12px; color:var(--muted)}
+
+    /* Sections */
+    section{padding:34px 0}
+    .section-title{display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:16px}
+    .section-title h3{margin:0; font-size:22px}
+    .section-title p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .tile{padding:16px}
+    .tile h4{margin:10px 0 6px; font-size:16px}
+    .tile p{margin:0; color:var(--muted); font-size:13px}
+    .icon{
+      width:40px; height:40px; border-radius:14px;
+      background: rgba(47,107,255,.14);
+      border:1px solid rgba(47,107,255,.32);
+      display:grid; place-items:center;
+      font-weight:800;
+      color: var(--text);
+    }
+
+    /* Rates */
+    .rates{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .plan{padding:18px; position:relative; overflow:hidden}
+    .plan .tag{
+      display:inline-block; font-size:12px; color:var(--muted);
+      border:1px solid var(--border); padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.04)
+    }
+    .plan h4{margin:12px 0 6px; font-size:18px}
+    .price{font-size:34px; font-weight:900; margin:8px 0 12px}
+    .price span{font-size:14px; color:var(--muted); font-weight:600}
+    .list{margin:0; padding:0; list-style:none; display:grid; gap:8px; color:var(--muted); font-size:13px}
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .check{
+      flex:0 0 18px; height:18px; border-radius:6px;
+      background: rgba(47,107,255,.18); border:1px solid rgba(47,107,255,.35);
+      display:grid; place-items:center; font-size:12px; margin-top:2px
+    }
+    .plan.featured{border-color: rgba(242,193,78,.45);}
+    .plan.featured::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 180px at 20% 0%, rgba(242,193,78,.22), transparent 55%);
+      pointer-events:none;
+    }
+
+    /* Add-ons + FAQ */
+    .split{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    .boxpad{padding:18px}
+    details{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px 14px;
+      background: rgba(0,0,0,.12);
+    }
+    details summary{cursor:pointer; font-weight:700}
+    details p{margin:8px 0 0; color:var(--muted); font-size:13px}
+
+    /* Footer */
+    footer{padding:26px 0 50px; border-top:1px solid var(--border); margin-top:18px}
+    .foot{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; align-items:flex-start}
+    .foot small{color:var(--muted)}
+
+    /* ✅ Responsive (single 960px block) */
+    @media (max-width: 960px){
+      .logo-img{height:60px;} /* mobile */
+      .brand-name{font-size:16px;}
+
+      .hero-grid{grid-template-columns: 1fr;}
+      .grid3{grid-template-columns: 1fr;}
+      .rates{grid-template-columns: 1fr;}
+      .split{grid-template-columns: 1fr;}
+      .hero h2{font-size:36px}
+      .brand{min-width:auto}
+    }
+
+    /* Theme toggle support */
+    html[data-theme="dark"]{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --text:#e9eefc;
+      --muted:#b9c3dd;
+      --accent:#2f6bff;
+      --accent2:#f2c14e;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --page: radial-gradient(900px 600px at 20% 0%, rgba(47,107,255,.25), transparent 55%),
+              radial-gradient(900px 600px at 90% 20%, rgba(242,193,78,.18), transparent 55%),
+              linear-gradient(180deg, #070b14, var(--bg) 40%, #070b14);
+      --header: rgba(7,11,20,.65);
+      --input: rgba(0,0,0,.18);
+    }
+
+    html:not([data-theme="dark"]) {
+      --page:#f6f8fc;
+      --header: rgba(255,255,255,.75);
+      --input: rgba(0,0,0,.04);
+    }
+
+    body{ background: var(--page) !important; }
+    header{ background: var(--header) !important; }
+
+    /* ✅ Mobile header fix */
+    @media (max-width: 960px){
+      header{ position: sticky; top:0; }
+      .nav{ flex-wrap: nowrap; gap:10px; padding:10px 0; }
+      .logo-img{ height:48px !important; }
+      .brand-name{ font-size:16px; }
+      .navlinks{ display:none !important; }
+      .btn{ padding:8px 10px; border-radius:12px; }
+      .btn.primary{ padding:8px 10px; }
+      .hero{ padding:26px 0 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Ledger Craft Solutions Home">
+        <img class="logo-img" src="lcs_logo_transparent.png" alt="Ledger Craft Solutions logo" />
+        <span class="brand-name">Ledger Craft Solutions</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#rates">Rates</a>
+        <a href="#addons">Add-ons</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn" id="themeToggle" type="button" aria-label="Toggle theme">🌙</button>
+        <a class="btn primary" href="#contact">Book a Free Intro Call</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="hero-grid">
+        <div>
+          <div class="pill"><span class="dot"></span> Helping small businesses stay organized and stress-free</div>
+          <h2>Clean books. Clear reports.<br><span class="accent">Confident decisions.</span></h2>
+          <p>
+            Ledger Craft Solutions provides reliable bookkeeping, AP/AR support, payroll posting, and HST/GST prep —
+            so you can focus on running the business.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#rates">See Packages</a>
+            <a class="btn" href="#contact">Get a Quote</a>
+            <a class="btn ghost" href="#services">What we do</a>
+          </div>
+          <p style="margin-top:14px; font-size:13px; color:var(--muted)">
+            Ideal for retail stores, e-commerce shops, and service businesses.
+          </p>
+        </div>
+
+        <aside class="card hero-card">
+          <h3>What you get every month</h3>
+          <p>Accurate reconciliations, organized records, and reports that make sense.</p>
+          <div class="kpi">
+            <div class="box">
+              <div class="num">Monthly</div>
+              <div class="lbl">Bank + credit card reconciliations</div>
+            </div>
+            <div class="box">
+              <div class="num">Reports</div>
+              <div class="lbl">P&L + Balance Sheet + HST summary</div>
+            </div>
+            <div class="box">
+              <div class="num">Support</div>
+              <div class="lbl">Quick questions answered fast</div>
+            </div>
+            <div class="box">
+              <div class="num">Ready</div>
+              <div class="lbl">Clean handoff for your accountant</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap">
+            <a class="btn" href="#contact">Request onboarding checklist</a>
+            <a class="btn ghost" href="#faq">How it works</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>Our Services</h3>
+            <p>Clear scope, clean workflow, consistent delivery.</p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card tile service-card">
+            <div class="service-head">
+              <span class="icon">BK</span>
+              <h4>Bookkeeping & Reporting</h4>
+            </div>
+            <p>
+              Transaction coding, bank and credit card reconciliations, and
+              month-end financial reports that are accurate, consistent,
+              and easy to understand.
+            </p>
+          </div>
+
+          <div class="card tile service-card">
+            <div class="service-head">
+              <span class="icon">AP</span>
+              <h4>AP / AR Management</h4>
+            </div>
+            <p>
+              Bill entry, invoice tracking, customer follow-ups, and
+              clean aging reports so you always know what you owe and
+              what is owed to you.
+            </p>
+          </div>
+
+          <div class="card tile service-card">
+            <div class="service-head">
+              <span class="icon">TX</span>
+              <h4>Tax Support</h4>
+            </div>
+            <p>
+              HST/GST tracking and filing preparation, plus a clean,
+              accountant-ready year-end handoff for efficient tax filing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rates">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>Packages</h3>
+            <p>Transparent monthly pricing. Final quote depends on transaction volume, number of accounts, payroll headcount, and how clean the records are.</p>
+          </div>
+        </div>
+
+        <div class="rates">
+          <div class="card plan">
+            <span class="tag">Basic</span>
+            <h4>Clean Books Starter</h4>
+            <div class="price">$550 <span>/ month</span></div>
+            <ul class="list">
+              <li><span class="check">✓</span><span><strong>Up to 100 transactions</strong> (bank + credit cards)</span></li>
+              <li><span class="check">✓</span><span><strong>Up to 2 accounts</strong> (ex: 1 bank + 1 credit card)</span></li>
+              <li><span class="check">✓</span><span><strong>Monthly reconciliations</strong> + basic rules setup</span></li>
+              <li><span class="check">✓</span><span><strong>Monthly reports:</strong> Profit & Loss + Balance Sheet</span></li>
+              <li><span class="check">✓</span><span><strong>Email support</strong> (48–72 hr response)</span></li>
+            </ul>
+            <p style="margin:12px 0 0; color:var(--muted); font-size:12px">Best for: solopreneurs and small service businesses with clean, consistent activity.</p>
+          </div>
+
+          <div class="card plan featured">
+            <span class="tag">Standard</span>
+            <h4>Core Monthly Close</h4>
+            <div class="price">$950 <span>/ month</span></div>
+            <ul class="list">
+              <li><span class="check">✓</span><span><strong>Up to 250 transactions</strong> (bank + credit cards)</span></li>
+              <li><span class="check">✓</span><span><strong>Up to 4 accounts</strong> (banks/credit cards)</span></li>
+              <li><span class="check">✓</span><span><strong>Receipts matching</strong> + clean coding (rules where possible)</span></li>
+              <li><span class="check">✓</span><span><strong>Monthly Close Pack</strong> (plain-English summary + P&L/BS)</span></li>
+              <li><span class="check">✓</span><span><strong>HST/GST tracking</strong> (not filing)</span></li>
+              <li><span class="check">✓</span><span><strong>1 check-in call/month</strong> (15–30 min)</span></li>
+              <li><span class="check">✓</span><span><strong>Support</strong> (24–48 hr response)</span></li>
+            </ul>
+            <p style="margin:12px 0 0; color:var(--muted); font-size:12px">Best for: retail/e-commerce or growing businesses that want consistent month-end structure.</p>
+          </div>
+
+          <div class="card plan">
+            <span class="tag">Premium</span>
+            <h4>Full-Service Finance</h4>
+            <div class="price">$2,200 <span>/ month</span></div>
+            <ul class="list">
+              <li><span class="check">✓</span><span><strong>Up to 600 transactions</strong> (higher volume)</span></li>
+              <li><span class="check">✓</span><span><strong>Up to 8 accounts</strong> (banks/credit cards)</span></li>
+              <li><span class="check">✓</span><span><strong>Close Pack + cash-flow notes</strong> (what changed + what to watch)</span></li>
+              <li><span class="check">✓</span><span><strong>AP/AR light</strong> (up to 25 bills + 20 invoices/month)</span></li>
+              <li><span class="check">✓</span><span><strong>2 calls/month</strong> or 1 longer review call</span></li>
+              <li><span class="check">✓</span><span><strong>Priority support</strong> (same/next-day)</span></li>
+            </ul>
+            <p style="margin:12px 0 0; color:var(--muted); font-size:12px">Best for: higher-volume, multi-channel, or multi-location businesses that need ongoing oversight.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px; padding:16px;">
+          <h4 style="margin:0 0 8px">What’s included (all packages)</h4>
+          <ul class="list" style="margin-top:8px">
+            <li><span class="check">✓</span><span>Monthly close workflow + reconciliations</span></li>
+            <li><span class="check">✓</span><span>Standard COA/rules tidy-up (as needed)</span></li>
+            <li><span class="check">✓</span><span>Year-end handoff support for your accountant (organized files + notes)</span></li>
+          </ul>
+
+          <h4 style="margin:14px 0 8px">Not included (quoted separately)</h4>
+          <ul class="list" style="margin-top:8px">
+            <li><span class="check">•</span><span><strong>Catch-up / cleanup</strong> for months behind</span></li>
+            <li><span class="check">•</span><span><strong>Payroll processing</strong> (running payroll) vs posting/support</span></li>
+            <li><span class="check">•</span><span><strong>Tax filing</strong> (corporate/personal) unless agreed in writing</span></li>
+          </ul>
+
+          <p style="margin:12px 0 0; color:var(--muted); font-size:12px">
+            <strong style="color:var(--text)">Note:</strong> If volume or complexity increases, we’ll adjust your plan so pricing stays fair and delivery stays consistent.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="addons">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>Add-ons</h3>
+            <p>Optional services you can layer on top of any package.</p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card boxpad">
+            <h4 style="margin:0 0 10px">AP/AR Add-on (when not included)</h4>
+            <ul class="list">
+              <li><span class="check">✓</span><span><strong>AP management:</strong> $250–$800 / month (depends on bill count)</span></li>
+              <li><span class="check">✓</span><span><strong>AR management:</strong> $250–$800 / month (depends on invoice count)</span></li>
+              <li><span class="check">✓</span><span><strong>Collections follow-ups:</strong> quoted based on frequency</span></li>
+            </ul>
+            <p style="margin:12px 0 0; color:var(--muted); font-size:13px">
+              Pricing is based on monthly volume (bills/invoices) and how structured the process is.
+            </p>
+          </div>
+
+          <div class="card boxpad">
+            <h4 style="margin:0 0 10px">Common Extras</h4>
+            <ul class="list">
+              <li><span class="check">✓</span><span><strong>HST/GST filing prep:</strong> $75–$150 / return</span></li>
+              <li><span class="check">✓</span><span><strong>Extra transactions:</strong> +$75 per +100</span></li>
+              <li><span class="check">✓</span><span><strong>Extra accounts:</strong> +$40–$75 per account</span></li>
+              <li><span class="check">✓</span><span><strong>Catch-up / cleanup:</strong> $75–$120/hr (or fixed per month behind)</span></li>
+              <li><span class="check">✓</span><span><strong>Payroll support (posting/help):</strong> $150–$400 / month</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>FAQ</h3>
+            <p>Quick answers for new clients.</p>
+          </div>
+        </div>
+
+        <div class="split">
+          <details open>
+            <summary>What do you need from me to start?</summary>
+            <p>Access to bank/credit statements (or view-only), your POS/payment processor reports, and any prior bookkeeping files. We’ll send a simple onboarding checklist.</p>
+          </details>
+          <details>
+            <summary>Do you file my taxes?</summary>
+            <p>We provide clean books, HST/GST tracking, and year-end handoff. Full tax filing can be coordinated with your accountant or quoted if applicable.</p>
+          </details>
+          <details>
+            <summary>What if my books are behind?</summary>
+            <p>No problem — catch-up/cleanup is quoted separately based on months behind and volume. Then you move onto a monthly package.</p>
+          </details>
+          <details>
+            <summary>How do payments work?</summary>
+            <p>Monthly billing, paid upfront. Scope changes (extra volume, payroll headcount, AP/AR) are priced as add-ons so there are no surprises.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>Contact</h3>
+            <p>Send a message and we’ll reply with next steps.</p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card boxpad">
+            <h4 style="margin:0 0 10px">Get in touch</h4>
+            <ul class="list">
+              <li><span class="check">✉</span><span>Email: <strong>Harshlad@ledgercraftsolutions.ca</strong></span></li>
+              <li><span class="check">☎</span><span>Phone: <strong>+1 647-856-3703</strong></span></li>
+              <li><span class="check">📍</span><span>Toronto, ON</span></li>
+              <li><span class="check">🌐</span><span>Website: <strong>ledgercraftsolutions.ca</strong></span></li>
+            </ul>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+              <a class="btn primary" href="mailto:Harshlad@ledgercraftsolutions.ca?subject=Bookkeeping%20Inquiry%20-%20Ledger%20Craft%20Solutions">Email Us</a>
+              <a class="btn" href="#rates">View Packages</a>
+            </div>
+          </div>
+
+          <form class="card boxpad"
+                action="https://formsubmit.co/Harshlad@ledgercraftsolutions.ca"
+                method="POST">
+
+            <h4 style="margin:0 0 10px">Quick quote form</h4>
+
+            <input type="hidden" name="_subject" value="New Quote Request – Ledger Craft Solutions">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://ledgercraftsolutions.ca/thank-you.html">
+            <input type="hidden" name="_autoresponse"
+                   value="Thanks for reaching out to Ledger Craft Solutions. We received your request and will reply within 1 business day.">
+
+            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Name</label>
+            <input required name="name" type="text" placeholder="Your name"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+
+            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Business</label>
+            <input required name="business" type="text" placeholder="Business name"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+
+            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Email</label>
+            <input required name="email" type="email" placeholder="name@email.com"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+
+            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">What do you need help with?</label>
+            <textarea required name="message" rows="4"
+              placeholder="Example: monthly bookkeeping, AP/AR, payroll, HST/GST…"
+              style="width:100%; padding:12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none; resize:vertical;"></textarea>
+
+            <button class="btn primary" type="submit" style="margin-top:12px; width:100%">Send Request</button>
+            <p style="margin:10px 0 0; color:var(--muted); font-size:12px">We’ll respond within 1 business day.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
+          <img class="logo-img" src="lcs_logo_transparent.png" alt="Ledger Craft Solutions logo" style="height:50px" />
+        </div>
+        <small>Organizing Numbers, Empowering Growth.</small>
+      </div>
+      <div>
+        <small>© <span id="y"></span> Ledger Craft Solutions. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle (light/dark)
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+
+    function applyTheme(t){
+      if(t === 'dark') root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+      localStorage.setItem('lcs_theme', t);
+      if(btn) btn.textContent = (t === 'dark') ? '☀️' : '🌙';
+    }
+
+    const saved = localStorage.getItem('lcs_theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved ? saved : (prefersDark ? 'dark' : 'light'));
+
+    if(btn){
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    }
+  </script>
+</body>
+</html>
