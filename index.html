@@ -274,6 +274,70 @@
       .btn{ padding:8px 10px; border-radius:12px; }
       .btn.primary{ padding:8px 10px; }
       .hero{ padding:26px 0 18px; }
+/* ===== Mobile polish: make the top/hero feel less squeezed ===== */
+@media (max-width: 600px){
+
+  /* Header: a bit more breathing room + smaller CTA button */
+  header{ backdrop-filter: blur(10px); }
+  .nav{ padding: 12px 0 !important; gap: 10px !important; }
+  .brand{ gap: 10px !important; }
+  .logo-img{ height: 44px !important; border-radius: 10px !important; }
+  .brand-name{ font-size: 15px !important; }
+
+  /* Make the top CTA less “bulky” */
+  .btn{ padding: 8px 10px !important; border-radius: 12px !important; }
+  .btn.primary{ padding: 8px 12px !important; }
+
+  /* Hero section spacing */
+  .hero{ padding: 34px 0 18px !important; }
+  .pill{
+    font-size: 12px !important;
+    padding: 7px 10px !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Headline + paragraph: easier to read on small screens */
+  .hero h2{
+    font-size: 30px !important;
+    line-height: 1.18 !important;
+    margin: 12px 0 12px !important;
+    letter-spacing: -0.4px !important;
+  }
+  .hero p{
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Buttons: stack neatly, full width */
+  .hero-ctas{
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 10px !important;
+  }
+  .hero-ctas a{
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* The “Ideal for…” line: add space so it doesn’t crash into next card */
+  .hero p[style*="margin-top:14px"]{
+    margin-top: 14px !important;
+    margin-bottom: 10px !important;
+    font-size: 12.5px !important;
+  }
+
+  /* Hero card (What you get every month): slightly tighter and cleaner */
+  .hero-card{ padding: 14px !important; }
+  .hero-card h3{ font-size: 15px !important; }
+  .hero-card p{ font-size: 12.5px !important; margin-bottom: 12px !important; }
+
+  .kpi{ gap: 10px !important; }
+  .kpi .box{ padding: 10px !important; border-radius: 14px !important; }
+  .kpi .num{ font-size: 18px !important; }
+  .kpi .lbl{ font-size: 11.5px !important; }
+}
+
     }
   </style>
 </head>
