@@ -393,7 +393,7 @@
       <div class="hero-grid">
         <div>
           <div class="pill"><span class="dot"></span> Helping small businesses stay organized and stress-free</div>
-          <h2>Precision bookkeeping.<br><span class="accent"> Nothing extra.</span></h2>
+          <h2 id="headline">Bookkeeping. Refined. Reliable.</h2>
           <p>
             Ledger Craft Solutions provides reliable bookkeeping, AP/AR support, payroll posting, and HST/GST prep —
             so you can focus on running the business.
@@ -729,6 +729,35 @@
         applyTheme(current === 'dark' ? 'light' : 'dark');
       });
     }
+    #headline {
+  transition: opacity .25s ease-in-out;
+}
+    <script>
+  const headlines = [
+    "Bookkeeping. Refined. Reliable.",
+    "Precision bookkeeping. Nothing extra.",
+    "Bookkeeping. Done with precision.",
+    "Effortless books. Elevated business.",
+    "Numbers handled. Business elevated.",
+    "Clarity in every number.",
+    "Premium bookkeeping. Zero noise.",
+    "Where accuracy meets clarity.",
+    "Quietly powerful bookkeeping."
+  ];
+
+  let i = 0;
+  const el = document.getElementById("headline");
+
+  setInterval(() => {
+    i = (i + 1) % headlines.length;
+    el.style.opacity = 0;
+
+    setTimeout(() => {
+      el.textContent = headlines[i];
+      el.style.opacity = 1;
+    }, 250);
+  }, 2800);
+</script>
   </script>
 </body>
 </html>
