@@ -55,22 +55,21 @@
       color:var(--text);
       white-space:nowrap;
     }
-    .logo-img{
-      height:100px;
-      width:auto;
-      display:block;
-      filter: drop-shadow(0 8px 16px rgba(11,18,32,.10));
+    
     }
     @media (max-width: 960px){
       .logo-img{height:48px;}
       .brand-name{font-size:16px;}
     }
     .logo-img{
-      height:58px;
-      width:auto;
-      border-radius:10px;
-      background: transparent;
-      display:block;
+  height:58px;
+  width:auto;
+  max-height:58px;
+  object-fit: contain;
+  display:block;
+  border-radius:10px;
+  filter: drop-shadow(0 8px 16px rgba(11,18,32,.10));
+}
     }
 
     .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
@@ -266,7 +265,9 @@
       <div class="hero-grid">
         <div>
           <div class="pill"><span class="dot"></span> Helping small businesses stay organized and stress-free</div>
-          <h2>Precision bookkeeping.<br><span class="accent">Nothing extra</span></h2>
+          <h2 id="dynamicHeadline" class="accent">
+  Bookkeeping. Refined. Reliable.
+</h2>
           <p>
             Ledger Craft Solutions provides reliable bookkeeping, AP/AR support, payroll posting, and HST/GST prep —
             so you can focus on running the business.
@@ -672,6 +673,24 @@
         applyTheme(current === 'dark' ? 'light' : 'dark');
       });
     }
-  </script>
+const headlines = [
+  "Bookkeeping. Refined. Reliable.",
+  "Precision bookkeeping. Nothing extra.",
+  "Bookkeeping. Done with precision.",
+  "Effortless books. Elevated business.",
+  "Numbers handled. Business elevated.",
+  "Clarity in every number.",
+  "Premium bookkeeping. Zero noise.",
+  "Where accuracy meets clarity.",
+  "Quietly powerful bookkeeping."
+];
+
+const savedIndex = localStorage.getItem("lcs_headline_index");
+let index = savedIndex ? parseInt(savedIndex) : Math.floor(Math.random() * headlines.length);
+
+document.getElementById("dynamicHeadline").textContent = headlines[index];
+
+index = (index + 1) % headlines.length;
+localStorage.setItem("lcs_headline_index", index);  </script>
 </body>
 </html>
