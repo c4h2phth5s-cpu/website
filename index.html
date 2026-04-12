@@ -48,16 +48,24 @@
     .brand{
       display:flex; align-items:center; gap:14px;
     }
-    .brand-name{
-      font-size:18px;
-      font-weight:800;
-      letter-spacing:.4px;
-      color:var(--text);
-      white-space:nowrap;
-    }
-    
-    }
-    @media (max-width: 960px){
+.brand-name   
+    {font-size:18px;
+  font-weight:800;
+  color:var(--text);}  
+    .logo-img{
+  height:58px;
+  width:auto;
+  max-height:58px;
+  object-fit:contain;
+  display:block;
+  border-radius:10px;
+  filter:drop-shadow(0 8px 16px rgba(11,18,32,.10));
+}
+
+@media (max-width: 960px){
+  .logo-img{height:46px;}
+  .brand-name{font-size:16px;}
+}
       .logo-img{height:48px;}
       .brand-name{font-size:16px;}
     }
