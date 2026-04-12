@@ -605,24 +605,42 @@
             </div>
           </div>
 
-          <form class="card boxpad"
-      action="https://formsubmit.co/Harshlad@ledgercraftsolutions.ca"
-      method="POST">
-            <h4 style="margin:0 0 10px">Request a Consultation</h4>
-            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Full Name</label>
-            <input required type="text" placeholder="Your full name" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+          <form class="card boxpad" action="https://formsubmit.co/Harshlad@ledgercraftsolutions.ca" method="POST">
 
-            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Business Name</label>
-            <input required type="text" placeholder="Your company name" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+  <h4 style="margin:0 0 14px; font-size:18px;">Request a Consultation</h4>
 
-            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">Email Address</label>
-            <input required type="email" placeholder="name@email.com" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none;" />
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://ledgercraftsolutions.ca/thank-you.html">
 
-            <label style="display:block; margin:10px 0 6px; color:var(--muted); font-size:13px">What do you need help with?</label>
-            <textarea required rows="4" placeholder="Briefly describe your bookkeeping needs (monthly bookkeeping, AP/AR, cleanup, etc.)" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--border); background:var(--input); color:var(--text); outline:none; resize:vertical;"></textarea>
+  <div style="margin-bottom:12px;">
+    <label style="font-size:12px; color:var(--muted); display:block; margin-bottom:6px;">Full Name</label>
+    <input name="name" required type="text" placeholder="Your full name"
+      style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); background:var(--input); color:var(--text);">
+  </div>
 
-            <button class="btn primary" type="submit" style="margin-top:12px; width:100%">Send</button>
-          </form>
+  <div style="margin-bottom:12px;">
+    <label style="font-size:12px; color:var(--muted); display:block; margin-bottom:6px;">Business Name</label>
+    <input name="business" required type="text" placeholder="Your company name"
+      style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); background:var(--input); color:var(--text);">
+  </div>
+
+  <div style="margin-bottom:12px;">
+    <label style="font-size:12px; color:var(--muted); display:block; margin-bottom:6px;">Email Address</label>
+    <input name="email" required type="email" placeholder="Name@email.com"
+      style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); background:var(--input); color:var(--text);">
+  </div>
+
+  <div style="margin-bottom:14px;">
+    <label style="font-size:12px; color:var(--muted); display:block; margin-bottom:6px;">What do you need help with?</label>
+    <textarea name="message" required rows="4" placeholder="Briefly describe your bookkeeping needs (monthly bookkeeping, AP/AR, cleanup, etc.)"
+      style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); background:var(--input); color:var(--text); resize:none;"></textarea>
+  </div>
+
+  <button class="btn primary" type="submit" style="width:100%;">
+    Send Request
+  </button>
+
+</form>
         </div>
       </div>
     </section>
